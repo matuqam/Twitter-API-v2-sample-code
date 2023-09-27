@@ -27,27 +27,7 @@ For samples which use bearer token authentication, you will need to export the b
 export BEARER_TOKEN='<your_bearer_token>'
 ```
 
-## Language-specific requirements
-
-### Java environment set up
-
-If you use Homebrew, you can install a Java runtime using:
-
-```bash
-brew cask install java
-```
-
-You will also need to download the relevant JAR files referenced in the individual samples in order to build and run the code. If you use an IDE, it may be able to do this automatically for you.
-
-### JavaScript (Node.js) environment set up
-
-You will need to have Node.js installed to run this code. All Node.js examples use `needle` as the HTTP client, which needs to be npm installed. For OAuth with user context requests, you'll need to install the `got` and `oauth-1.0a` packages.
-
-```bash
-npm install needle
-npm install got
-npm install oauth-1.0a
-```
+## programming language requirements
 
 ### Python environment set up
 
@@ -63,17 +43,7 @@ source venv/bin/activate
 You can install these packages as follows:
 
 ```bash
-pip install requests
-pip install requests-oauthlib
-```
-
-### Ruby environment set up
-
-You will need to have Ruby (recommended: >= 2.0.0) installed in order to run the code. The Ruby examples use `typhoeus` as the HTTP client, which needs to be gem installed. For OAuth with user context requests, you'll also need to install the `oauth` gem (see below).
-
-```bash
-gem install typhoeus
-gem install oauth
+pip install -r requirements
 ```
 
 ## Additional resources
