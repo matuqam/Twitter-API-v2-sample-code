@@ -100,3 +100,11 @@ We feel that a welcoming community is important and we ask that you follow Twitt
 Copyright 2021 Twitter, Inc.
 
 Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0
+
+# house cleaning (remove non python enpoint files)
+```bash
+E='\.java'; for I in $(tree -P *$E -f -i | grep -e "$E"); do rm $I; done
+E='\.r'; for I in $(tree -P *$E -f -i | grep -e "$E"); do rm $I; done
+E='\.rb'; for I in $(tree -P *$E -f -i | grep -e "$E"); do rm $I; done
+E='\.js'; for I in $(tree -P *$E -f -i | grep -e "$E"); do rm $I; done
+```
