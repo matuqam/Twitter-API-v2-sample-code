@@ -3,10 +3,10 @@ import os
 import json
 
 # To set your enviornment variables in your terminal run the following line:
-# export 'CONSUMER_KEY'='<your_consumer_key>'
-# export 'CONSUMER_SECRET'='<your_consumer_secret>'
-consumer_key = os.environ.get("CONSUMER_KEY")
-consumer_secret = os.environ.get("CONSUMER_SECRET")
+# export 'API_KEY'='<your_api_key>'
+# export 'API_SECRET_KEY'='<your_api_secret_key>'
+api_key = os.environ.get("API_KEY")
+api_secret_key = os.environ.get("API_SECRET_KEY")
 
 # Be sure to replace your-user-id with your own user ID or one of an authenticating user
 # You can find a user ID by using the user lookup endpoint
@@ -15,13 +15,13 @@ id = "your-user-id"
 params = {"tweet.fields": "created_at"} # Tweet ID and text are included by default.
 
 request_token_url = "https://api.twitter.com/oauth/request_token"
-oauth = OAuth1Session(consumer_key, client_secret=consumer_secret)
+oauth = OAuth1Session(api_key, client_secret=api_secret_key)
 
 try:
     fetch_response = oauth.fetch_request_token(request_token_url)
 except ValueError:
     print(
-        "There may have been an issue with the consumer_key or consumer_secret you entered."
+        "There may have been an issue with the api_key or api_secret_key you entered."
     )
 
 resource_owner_key = fetch_response.get("oauth_token")
@@ -37,8 +37,8 @@ verifier = input("Paste the PIN here: ")
 # Get the access token
 access_token_url = "https://api.twitter.com/oauth/access_token"
 oauth = OAuth1Session(
-    consumer_key,
-    client_secret=consumer_secret,
+    api_key,
+    client_secret=api_secret_key,
     resource_owner_key=resource_owner_key,
     resource_owner_secret=resource_owner_secret,
     verifier=verifier,
@@ -50,8 +50,8 @@ access_token_secret = oauth_tokens["oauth_token_secret"]
 
 # Make the request
 oauth = OAuth1Session(
-    consumer_key,
-    client_secret=consumer_secret,
+    api_key,
+    client_secret=api_secret_key,
     resource_owner_key=access_token,
     resource_owner_secret=access_token_secret,
 )
